@@ -1,19 +1,19 @@
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:venonweb/constants.dart';
-import 'package:venonweb/controllers/MenuController.dart';
-import 'package:venonweb/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:venonweb/screens/main/main_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    Intl.defaultLocale = 'tr';
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Admin Panel',
       theme: ThemeData.dark().copyWith(
@@ -22,14 +22,7 @@ class MyApp extends StatelessWidget {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => MenuController(),
-          ),
-        ],
-        child: MainScreen(),
-      ),
+      home: MainScreen(),
     );
   }
 }

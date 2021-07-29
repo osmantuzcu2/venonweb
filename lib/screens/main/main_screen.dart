@@ -1,36 +1,19 @@
+import 'package:get/get.dart';
 import 'package:venonweb/controllers/MenuController.dart';
-import 'package:venonweb/responsive.dart';
 import 'package:venonweb/screens/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:venonweb/screens/general-components/general-components.dart';
 
 import 'components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final MenuController c = Get.put(MenuController());
+
     return Scaffold(
-      key: context.read<MenuController>().scaffoldKey,
-      drawer: SideMenu(),
-      body: SafeArea(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // We want this side menu only for large screen
-            if (Responsive.isDesktop(context))
-              Expanded(
-                // default flex = 1
-                // and it takes 1/6 part of the screen
-                child: SideMenu(),
-              ),
-            Expanded(
-              // It takes 5/6 part of the screen
-              flex: 5,
-              child: DashboardScreen(),
-            ),
-          ],
-        ),
-      ),
-    );
+        key: c.scaffoldKey,
+        drawer: SideMenu(),
+        body: kernel("DashBoard", context, DashboardScreen()));
   }
 }

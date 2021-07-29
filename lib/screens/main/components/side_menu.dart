@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:venonweb/screens/calendar/calendartest.dart';
+import 'package:venonweb/screens/calendar/test.dart';
+import 'package:venonweb/screens/login/login-screen.dart';
+import 'package:venonweb/screens/users/UserList.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -20,24 +25,32 @@ class SideMenu extends StatelessWidget {
             press: () {},
           ),
           DrawerListTile(
-            title: "Transaction",
-            svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
+            title: "Kullanıcılar",
+            svgSrc: "assets/icons/users.svg",
+            press: () {
+              Get.to(UsersListScreen());
+            },
           ),
           DrawerListTile(
             title: "Task",
             svgSrc: "assets/icons/menu_task.svg",
-            press: () {},
+            press: () {
+              Get.to(CalendarScreen());
+            },
           ),
           DrawerListTile(
             title: "Documents",
             svgSrc: "assets/icons/menu_doc.svg",
-            press: () {},
+            press: () {
+              Get.to(TestScreen());
+            },
           ),
           DrawerListTile(
             title: "Store",
             svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
+            press: () {
+              Get.to(LoginScreen());
+            },
           ),
           DrawerListTile(
             title: "Notification",

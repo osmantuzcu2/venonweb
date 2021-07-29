@@ -1,28 +1,28 @@
+import 'package:get/get.dart';
 import 'package:venonweb/controllers/MenuController.dart';
 import 'package:venonweb/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
 
 class Header extends StatelessWidget {
-  const Header({
-    Key? key,
-  }) : super(key: key);
+  const Header(this.txt);
 
+  final String txt;
   @override
   Widget build(BuildContext context) {
+    final MenuController c = Get.put(MenuController());
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
           IconButton(
             icon: Icon(Icons.menu),
-            onPressed: context.read<MenuController>().controlMenu,
+            onPressed: c.controlMenu,
           ),
         if (!Responsive.isMobile(context))
           Text(
-            "Dashboard",
+            txt,
             style: Theme.of(context).textTheme.headline6,
           ),
         if (!Responsive.isMobile(context))

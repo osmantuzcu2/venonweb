@@ -1,0 +1,17 @@
+Unhandled exception. System.IO.IOException: The configured user limit (128) on the number of inotify instances has been reached, or the per-process limit on the number of open file descriptors has been reached.
+   at System.IO.FileSystemWatcher.StartRaisingEvents()
+   at System.IO.FileSystemWatcher.StartRaisingEventsIfNotDisposed()
+   at System.IO.FileSystemWatcher.set_EnableRaisingEvents(Boolean value)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFilesWatcher.TryEnableFileSystemWatcher()
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFilesWatcher.CreateFileChangeToken(String filter)
+   at Microsoft.Extensions.FileProviders.PhysicalFileProvider.Watch(String filter)
+   at Microsoft.Extensions.Configuration.FileConfigurationProvider.<.ctor>b__1_0()
+   at Microsoft.Extensions.Primitives.ChangeToken.ChangeTokenRegistration`1..ctor(Func`1 changeTokenProducer, Action`1 changeTokenConsumer, TState state)
+   at Microsoft.Extensions.Primitives.ChangeToken.OnChange(Func`1 changeTokenProducer, Action changeTokenConsumer)
+   at Microsoft.Extensions.Configuration.FileConfigurationProvider..ctor(FileConfigurationSource source)
+   at Microsoft.Extensions.Configuration.Json.JsonConfigurationSource.Build(IConfigurationBuilder builder)
+   at Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.WebHostBuilder.BuildCommonServices(AggregateException& hostingStartupErrors)
+   at Microsoft.AspNetCore.Hosting.WebHostBuilder.Build()
+   at Venon.Program.Main(String[] args) in D:\Calismalar\Venon\Venon\Program.cs:line 17
+Aborted (core dumped)
