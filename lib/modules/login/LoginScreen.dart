@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:venonweb/controllers/LoginController.dart';
+import 'package:venonweb/modules/login/LoginController.dart';
 import 'package:venonweb/screens/general-components/general-components.dart';
 
 class LoginScreen extends StatelessWidget {

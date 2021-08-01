@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/get_utils/get_utils.dart';
 import 'package:venonweb/responsive.dart';
 import 'package:venonweb/screens/dashboard/components/header.dart';
 import 'package:venonweb/screens/main/components/side_menu.dart';
@@ -19,6 +20,59 @@ Widget genInput(String hint, TextEditingController cont, bool obs) {
       obscureText: obs,
       controller: cont,
       decoration: inpDecoration(hint),
+    ),
+  );
+}
+
+Widget emailInput(String hint, TextEditingController cont) {
+  return Container(
+    padding: pdd(),
+    child: TextFormField(
+      decoration: inpDecoration(hint),
+      controller: cont,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: (value) {
+        if (!GetUtils.isEmail(value!))
+          return "Geçersiz bir E-mail adresi girdiniz.";
+        else
+          return null;
+      },
+    ),
+  );
+}
+
+Widget genTextArea(String hint, TextEditingController cont, bool obs) {
+  return Container(
+    padding: pdd(),
+    child: TextFormField(
+      minLines: 3,
+      maxLines: 5,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Bu alan boş bırakılamaz';
+        }
+        return null;
+      },
+      obscureText: obs,
+      controller: cont,
+      decoration: inpDecoration(hint),
+    ),
+  );
+}
+
+Widget phoneInput(String hint, TextEditingController cont) {
+  return Container(
+    padding: pdd(),
+    child: TextFormField(
+      decoration: inpDecoration(hint),
+      controller: cont,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: (value) {
+        if (!GetUtils.isPhoneNumber(value!))
+          return "Geçersiz bir Telefon numarası girdiniz.";
+        else
+          return null;
+      },
     ),
   );
 }

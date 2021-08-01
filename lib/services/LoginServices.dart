@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:venonweb/constants.dart';
-import 'package:venonweb/models/LoginModel.dart';
+import 'package:venonweb/modules/login/LoginModel.dart';
 
 class LoginService {
   String? errorString;

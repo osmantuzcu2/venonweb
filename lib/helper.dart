@@ -43,9 +43,7 @@ Widget areYouSure(context, String text, Function func) {
         child: Text('Hayır'),
       ),
       TextButton(
-        onPressed: () => () {
-          Get.back();
-        },
+        onPressed: () => func,
         child: Text('Evet'),
       ),
     ],

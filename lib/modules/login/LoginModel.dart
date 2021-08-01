@@ -1,4 +1,4 @@
-import 'GeneralModels.dart';
+import '../../models/GeneralModels.dart';
 
 class UserLogin {
   UserLogin({

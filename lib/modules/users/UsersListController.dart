@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:venonweb/models/GeneralModels.dart';
-import 'package:venonweb/models/UsersModel.dart';
-import 'package:venonweb/services/UsersService.dart';
+import 'UsersModel.dart';
+import 'UsersService.dart';
 import 'package:get/get.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
 class UsersListController extends GetxController {
   Users? userList;

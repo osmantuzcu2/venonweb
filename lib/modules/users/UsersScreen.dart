@@ -2,13 +2,12 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:venonweb/controllers/UsersListController.dart';
-import 'package:venonweb/helper.dart';
-import 'package:venonweb/models/UsersModel.dart';
+import 'package:venonweb/modules/users/UsersListController.dart';
 import 'package:venonweb/screens/general-components/general-components.dart';
 import 'package:venonweb/screens/main/components/side_menu.dart';
 
 import '../../constants.dart';
+import 'UsersModel.dart';
 
 class UsersListScreen extends StatelessWidget {
   final UsersListController c = Get.put(UsersListController());
@@ -45,33 +44,42 @@ class UsersListScreen extends StatelessWidget {
                                               alignment: Alignment.centerLeft,
                                               child: Padding(
                                                 padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: DropdownButton<int>(
-                                                  isExpanded: true,
-                                                  value: c.selectedValue!.code,
-                                                  onChanged: (val) {
-                                                    c.select(val);
-                                                  },
-                                                  items: userType.map((item) {
-                                                    return DropdownMenuItem<
-                                                        int>(
-                                                      value: item.code,
-                                                      child:
-                                                          new Text(item.type!),
-                                                    );
-                                                  }).toList(),
+                                                    const EdgeInsets.all(4.0),
+                                                child: Container(
+                                                  padding: EdgeInsets.all(10),
+                                                  decoration: BoxDecoration(
+                                                    color: secondaryColor,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                10)),
+                                                  ),
+                                                  child: DropdownButton<int>(
+                                                    isExpanded: true,
+                                                    value:
+                                                        c.selectedValue!.code,
+                                                    onChanged: (val) {
+                                                      c.select(val);
+                                                    },
+                                                    items: userType.map((item) {
+                                                      return DropdownMenuItem<
+                                                          int>(
+                                                        value: item.code,
+                                                        child: new Text(
+                                                            item.type!),
+                                                      );
+                                                    }).toList(),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                             genInput("Adı", c.nameCont, false),
                                             genInput(
                                                 "Soyadı", c.surnameCont, false),
+                                            emailInput("E-Mail", c.mailCont),
+                                            phoneInput("Telefon", c.phoneCont),
                                             genInput(
-                                                "E-Mail", c.mailCont, false),
-                                            genInput(
-                                                "Telefon", c.phoneCont, false),
-                                            genInput("Parola", c.passwordCont,
-                                                false),
+                                                "Parola", c.passwordCont, true),
                                             Align(
                                               alignment: Alignment.centerRight,
                                               child: Padding(
@@ -211,11 +219,20 @@ DataRow recentFileDataRow(Datum users, context, UsersListController c) {
               icon: Icon(Icons.edit)),
           IconButton(
               onPressed: () {
-                Get.dialog(areYouSure(
-                    context, "Silmek istediğinizden emin misiniz?", () {
-                  c.deleteUser(users.id);
-                  print("test");
-                }));
+                Get.dialog(AlertDialog(
+                  title: Text('Emin misiniz?'),
+                  content: Text("Silmek istediğinizden emin misiniz?"),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Get.back(),
+                      child: Text('Hayır'),
+                    ),
+                    TextButton(
+                      onPressed: () => c.deleteUser(users.id),
+                      child: Text('Evet'),
+                    ),
+                  ],
+                ));
               },
               icon: Icon(Icons.delete)),
         ],

@@ -22,10 +22,12 @@ dependencies:
   intl: ^0.17.0
   dio: ^4.0.0
   http: ^0.13.3
+  google_maps: ^5.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 flutter:
 

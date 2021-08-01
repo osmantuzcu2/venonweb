@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:venonweb/modules/dealers/DealersScreen.dart';
+import 'package:venonweb/modules/users/UsersScreen.dart';
 import 'package:venonweb/screens/calendar/calendartest.dart';
 import 'package:venonweb/screens/calendar/test.dart';
-import 'package:venonweb/screens/login/login-screen.dart';
-import 'package:venonweb/screens/users/UserList.dart';
+import 'package:venonweb/modules/login/LoginScreen.dart';
+import 'package:venonweb/screens/main/main_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -22,7 +24,9 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "Dashbord",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
+            press: () {
+              Get.to(MainScreen());
+            },
           ),
           DrawerListTile(
             title: "Kullanıcılar",
@@ -32,10 +36,10 @@ class SideMenu extends StatelessWidget {
             },
           ),
           DrawerListTile(
-            title: "Task",
-            svgSrc: "assets/icons/menu_task.svg",
+            title: "Bayiler",
+            svgSrc: "assets/icons/dealers.svg",
             press: () {
-              Get.to(CalendarScreen());
+              Get.to(DealersListScreen());
             },
           ),
           DrawerListTile(
@@ -65,7 +69,9 @@ class SideMenu extends StatelessWidget {
           DrawerListTile(
             title: "Settings",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              Get.to(CalendarScreen());
+            },
           ),
         ],
       ),

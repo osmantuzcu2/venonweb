@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:venonweb/constants.dart';
-import 'package:venonweb/models/UpdateUserModel.dart';
-import 'package:venonweb/models/UsersModel.dart';
+import 'UpdateUserModel.dart';
+
+import 'UsersModel.dart';
 
 class UsersService {
   String? errorString;

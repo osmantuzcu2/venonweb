@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:venonweb/models/LoginModel.dart';
+import 'package:venonweb/modules/login/LoginModel.dart';
 import 'package:venonweb/screens/general-components/general-components.dart';
 import 'package:venonweb/screens/main/main_screen.dart';
 import 'package:venonweb/services/LoginServices.dart';

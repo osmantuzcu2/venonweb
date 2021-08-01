@@ -1,4 +1,4 @@
-import 'GeneralModels.dart';
+import '../../models/GeneralModels.dart';
 
 class UpdateUser {
   UpdateUser({
